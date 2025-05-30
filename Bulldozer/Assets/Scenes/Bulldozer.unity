@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  cameraTransform: {fileID: 519420032}
 --- !u!50 &647223325
 Rigidbody2D:
   serializedVersion: 4
