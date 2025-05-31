@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - key
   - door_wall
+  - point
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 930969463
+    locked: 0
+  - name: Map
+    uniqueID: 1805341873
+    locked: 0
+  - name: Items
+    uniqueID: 2799720117
+    locked: 0
+  - name: Sprites
+    uniqueID: 2565010199
+    locked: 0
+  - name: Player
+    uniqueID: 2296350335
     locked: 0

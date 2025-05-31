@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 //SINGLETON
 public class GameManagementScipt : MonoBehaviour
@@ -10,7 +12,9 @@ public class GameManagementScipt : MonoBehaviour
     public GameObject player;
     public Vector3 playerResetPosition = new Vector3(0, 0, 0);
     public int points = 0;
-    
+    public int life = 10;
+    public TextMeshProUGUI counterText;
+
     //private float nextChangeTime = 0f;
 
     public static GameManagementScipt instance { get; private set; }
@@ -56,12 +60,20 @@ public class GameManagementScipt : MonoBehaviour
     {
         player.transform.position = playerResetPosition;
         points = 0;
+        life--;
+        printDatas();
         Debug.Log("Player reset.");
     }
 
     public void pointPickedUp()
     {
         points++;
+        printDatas();
         Debug.Log(points);
+    }
+
+    private void printDatas()
+    {
+        counterText.text = "Life: " + life.ToString() + " Points: " + points.ToString();
     }
 }
