@@ -19,9 +19,11 @@ public class GameManagementScipt : MonoBehaviour
     public int diamondValue = 10;
     public int healValue = 5;
     public int heal = 10;
+    public bool pointLoss = true;
     public TextMeshProUGUI counterText;
 
     private int life = 10;
+    private bool isGameover = false;
 
     public static GameManagementScipt instance { get; private set; }
  
@@ -41,15 +43,26 @@ public class GameManagementScipt : MonoBehaviour
         {
             Destroy(this);
         }
+
+        printDatas();
     }
 
     public void resetPlayer()
     {
         player.transform.position = playerResetPosition;
-        points = 0;
+        if (pointLoss) points = 0;
         life--;
+        if (life <= 0) gameOver();
         printDatas();
         Debug.Log("Player reset.");
+    }
+
+    public void gameOver()
+    {
+        PlayerMovementScript playerMovementScript = player.GetComponent<PlayerMovementScript>();
+        playerMovementScript.gameOver();
+        isGameover = true;
+        life = 0;
     }
 
     public void pointPickedUp()
@@ -82,5 +95,6 @@ public class GameManagementScipt : MonoBehaviour
     private void printDatas()
     {
         counterText.text = "Life: " + life.ToString() + " Points: " + points.ToString();
+        if (isGameover) counterText.text += " - !!! GAME OVER !!!";
     }
 }
