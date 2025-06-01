@@ -9,6 +9,8 @@ TagManager:
   - key
   - door_wall
   - point
+  - stone
+  - untagged
   layers:
   - Default
   - TransparentFX

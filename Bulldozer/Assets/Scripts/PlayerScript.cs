@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.CompareTag("key"))
         {
+            Destroy(collision.gameObject);
             Debug.Log("Key collected!");
         }
 

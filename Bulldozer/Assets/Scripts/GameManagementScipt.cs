@@ -13,6 +13,8 @@ public class GameManagementScipt : MonoBehaviour
     public Vector3 playerResetPosition = new Vector3(0, 0, 0);
     public int points = 0;
     public int life = 10;
+    public int pointValue = 1;
+    public int stoneValue = 5;
     public TextMeshProUGUI counterText;
 
     //private float nextChangeTime = 0f;
@@ -67,7 +69,14 @@ public class GameManagementScipt : MonoBehaviour
 
     public void pointPickedUp()
     {
-        points++;
+        points += pointValue;
+        printDatas();
+        Debug.Log(points);
+    }
+
+    public void stonePickedUp()
+    {
+        points += stoneValue;
         printDatas();
         Debug.Log(points);
     }
