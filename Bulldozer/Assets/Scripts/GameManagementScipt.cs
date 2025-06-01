@@ -12,42 +12,27 @@ public class GameManagementScipt : MonoBehaviour
     public GameObject player;
     public Vector3 playerResetPosition = new Vector3(0, 0, 0);
     public int points = 0;
-    public int life = 10;
+    public int defaultLife = 10;
+
     public int pointValue = 1;
     public int stoneValue = 5;
+    public int diamondValue = 10;
+    public int healValue = 5;
+    public int heal = 10;
     public TextMeshProUGUI counterText;
 
-    //private float nextChangeTime = 0f;
+    private int life = 10;
 
     public static GameManagementScipt instance { get; private set; }
-    //public List<GameObject> fires = new List<GameObject>();
-
-    /*private void ChanegeFire()
-    {
-        nextChangeTime = Time.time + 5f; // Change fire position every 2 seconds
-        foreach (GameObject fire in fires)
-        {
-            if (fire.activeSelf)
-            {
-                fire.SetActive(false);
-            }
-            else
-            {
-                fire.SetActive(true);
-            }
-        }
-    }*/
-
-    public void Update()
-    {
-        /*if (Time.time >= nextChangeTime)
-        {
-            ChanegeFire();
-        }*/
-    }
  
     private void Awake()
     {
+        //Application.targetFrameRate = 30;
+
+        QualitySettings.vSyncCount = 1;
+
+        life = defaultLife;
+
         if (instance == null || instance == this)
         {
             instance = this;
@@ -79,6 +64,19 @@ public class GameManagementScipt : MonoBehaviour
         points += stoneValue;
         printDatas();
         Debug.Log(points);
+    }
+
+    public void diamondPickedUp()
+    {
+        points += diamondValue;
+        printDatas();
+        Debug.Log(points);
+    }
+
+    public void healPickedUp()
+    {
+        life += healValue;
+        printDatas();
     }
 
     private void printDatas()

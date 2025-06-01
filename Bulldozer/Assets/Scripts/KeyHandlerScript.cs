@@ -17,7 +17,7 @@ public class KeyHandlerScript : MonoBehaviour
                 Destroy(wall);
             }
             Debug.Log("Key collected! Walls destroyed!");
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }

@@ -8,6 +8,7 @@ public class ProjectileHandlerScript : MonoBehaviour
 
     private SpriteRenderer sRenderer;
     private bool isDestroying = false;
+    private float redFlashTime = 0.3f;
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class ProjectileHandlerScript : MonoBehaviour
         moveDirection = new Vector2(0, 0);
         if (sRenderer != null)
             sRenderer.color = Color.red;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(redFlashTime);
         Debug.Log("Projectal destroyed!");
         Destroy(gameObject);
     }

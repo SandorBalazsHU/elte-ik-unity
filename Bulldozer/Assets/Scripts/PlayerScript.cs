@@ -14,12 +14,6 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("Point collected!");
         }
 
-        if (collision.CompareTag("key"))
-        {
-            Destroy(collision.gameObject);
-            Debug.Log("Key collected!");
-        }
-
         if (collision.CompareTag("enemy"))
         {
             StartCoroutine(DamageFeedback());
