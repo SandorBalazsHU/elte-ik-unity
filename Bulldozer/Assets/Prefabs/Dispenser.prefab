@@ -99,4 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 187717345835874532, guid: 29091cd0b0b427d4f94b69f47443af0a, type: 3}
   fireDirection: {x: 0, y: 2}
-  fireInterval: 4
+  fireInterval: 2
